@@ -11,6 +11,7 @@ tvem(
   time,
   invar_effects = NULL,
   family = gaussian(),
+  weights = NULL,
   num_knots = 20,
   spline_order = 3,
   penalty_function_order = 1,
@@ -20,7 +21,8 @@ tvem(
   basis = "ps",
   method = "fREML",
   use_naive_se = FALSE,
-  print_gam_formula = FALSE
+  print_gam_formula = FALSE,
+  normalize_weights = TRUE
 )
 }
 \arguments{
@@ -63,12 +65,11 @@ For a binary outcome, use binomial().  For a count outcome, you can
 use poisson().  The parentheses after the family name are there because it is 
 actually a built-in R object.}
 
+\item{weights}{An optional sampling weight variable.}
+
 \item{num_knots}{The number of interior knots assumed per spline function,
-not counting exterior knots. The user can either specify a single number
-for each function (e.g., 3), or else a vector of numbers, the first
-for the intercept and the others for the time-varying covariates 
-(e.g., c(2,3,2)). If penalized=TRUE is used, it is
-probably okay to leave num_knots at its default.}
+not counting exterior knots. This is assumed to be the same for each function.
+If penalized=TRUE is used, it is probably okay to leave num_knots at its default.}
 
 \item{spline_order}{The shape of the function between knots, with a
 default of 3 representing cubic spline.}
@@ -103,12 +104,19 @@ leaving it at the default value.}
 details passed on to the mgcv::bam function as method).  We strongly recommend
 leaving it at the default value.}
 
-\item{use_naive_se}{Save time by using a simpler, less valid formula for 
+\item{use_naive_se}{Whether to save time by using a simpler, less valid formula for 
 standard errors. Only do this if you are doing TVEM inside a loop for
 bootstrapping or model selection and plan to ignore these standard errors.}
 
-\item{print_gam_formula}{Print the formula used to do the back-end calculations
+\item{print_gam_formula}{whether to print the formula used to do the back-end calculations
 in the bam (large data gam) function in the mgcv package.}
+
+\item{normalize_weights}{Whether to rescale (standardize) the weights variable to have a mean 
+of 1 for the dataset used in the analysis. Setting this to FALSE might lead to invalid 
+standard errors caused by misrepresentation of the true sample size. This 
+option is irrelevant and ignored if a weight variable is not specified, because
+in that case all the weights are effectively 1 anyway.  An error will result if the function is asked to rescale weights and any of the weights are negative; however, it is very rare for
+sampling weights to be negative.}
 }
 \value{
 An object of type tvem. The components of an object of 
@@ -127,7 +135,14 @@ errors and pointwise confidence intervals.}
 invar_effects, their estimated regression coefficients and 
 standard errors are shown here.}
 \item{model_information}{A list summarizing the options
-specified in the call to the function.}
+specified in the call to the function, as well as fit statistics
+based on the log-pseudo-likelihood function. The term pseudo
+here means that the likelihood function is evaluated as though
+the correct knot locations were known, as though the 
+observations were independent and, if applicable, as though sampling 
+weights were multiples of a participant rather than 
+inverse probabilities. This allows tvem to be used without
+specifying a fully parametric probability model.}
 \item{back_end_model}{The full output from the bam() 
 function from the mgcv package, which was used to fit the 
 penalized spline regression model underlying the TVEM.}
