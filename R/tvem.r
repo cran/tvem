@@ -91,8 +91,13 @@
 #' @param spline_order The shape of the function between knots, with a
 #' default of 3 representing cubic spline.
 #' @param penalty_function_order The order of the penalty function (see 
-#' Eilers and Marx, 1996), with a default of 2 for second-order 
-#' difference penalty.
+#' Eilers and Marx, 1996), with a default of 1 for first-order 
+#' difference penalty.  Eilers and Marx (1996) used second-order difference
+#' but we found first-order seemed to perform parsimoniously in this setting.
+#' Please feel free to consider setting this to 2 to explore other possible 
+#' results. The penalty function is something analogous to a prior distribution
+#' describing how smooth or flat the estimated coefficient functions should be,  
+#' with 1 being smoothest.
 #' @param grid The number of points at which the spline coefficients
 #' will be estimated, for the purposes of the pointwise estimates and 
 #' pointwise standard errors to be included in the output object. The
@@ -436,6 +441,15 @@ tvem <- function(data,
                         data=data_for_analysis,
                         family=family,
                         method=method);
+  }
+  within_subject_variance <- sapply(X=unique(data_for_analysis[,id_variable_name]),
+               function(X){var(data_for_analysis[which(data_for_analysis[,id_variable_name]==X),response_name],na.rm=TRUE)});
+  highest_within_subject_variance_not_counting_singletons <- 
+    max(within_subject_variance,na.rm=TRUE)
+  if (highest_within_subject_variance_not_counting_singletons<1e-10) {
+    warning(paste("The variable specified as the output seems to be",
+    "time-invariant within subject \n despite multiple measurements",
+    "per subject.  Results may not be interpretable."));
   }
   ##################################
   # Extract coefficient estimates;

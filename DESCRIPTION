@@ -1,8 +1,8 @@
 Package: tvem
 Type: Package
 Title: Time-Varying Effect Models
-Version: 1.2-0
-Date: 2021-02-19
+Version: 1.3
+Date: 2021-08-05
 Authors@R: c(person(given="John J.", family="Dziak",
                      role = c("aut", "cre"),
                      email = "dziakj1@gmail.com",
@@ -20,7 +20,7 @@ Description: Fits time-varying effect models (TVEM). These are a kind of applica
 License: GPL (>= 2)
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-02-19 22:00:55 UTC; JJD
+Packaged: 2021-08-05 19:12:04 UTC; JJD
 Author: John J. Dziak [aut, cre] (<https://orcid.org/0000-0003-0762-5495>),
   Donna L. Coffman [aut] (<https://orcid.org/0000-0001-6305-6579>),
   Runze Li [aut] (<https://orcid.org/0000-0002-0154-2202>),
@@ -28,4 +28,4 @@ Author: John J. Dziak [aut, cre] (<https://orcid.org/0000-0003-0762-5495>),
   Yajnaseni Chakraborti [aut]
 Maintainer: John J. Dziak <dziakj1@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-02-19 23:00:02 UTC
+Date/Publication: 2021-08-05 19:30:02 UTC
