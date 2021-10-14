@@ -33,7 +33,7 @@ install_github("dziakj1/tvem")
 It is also available from the CRAN archive using the command 
 ```{r,eval=FALSE}
 install.packages("tvem")
-````
+```
 
   Of course, if you are viewing this guide from within R using the `vignette()` function, then the package is already installed.
  
@@ -334,7 +334,7 @@ In this example, including sex as a covariate renders it unnecessary to weight b
 
 * Hastie, T, & Tibshirani, R. (1993). Varying-coefficient models. Journal of the Royal Statistical Socety, B, 55:757-796.
 
-* Li, R., Dziak, J. J., Tan, X., Huang, L., Wagner, A. T., & Yang, J. (2017). TVEM (time-varying effect model) SAS macro users' guide (Version 3.1.1). University Park: The Methodology Center, Penn State. Available online at [https://www.methodology.psu.edu/downloads/tvem/])(https://www.methodology.psu.edu/downloads/tvem/) and archived at  [https://github.com/dziakj1/MethodologyCenterTVEMmacros](https://github.com/dziakj1/MethodologyCenterTVEMmacros) and [https://scholarsphere.psu.edu/collections/v41687m23q](https://scholarsphere.psu.edu/collections/v41687m23q).
+* Li, R., Dziak, J. J., Tan, X., Huang, L., Wagner, A. T., & Yang, J. (2017). TVEM (time-varying effect model) SAS macro users' guide (Version 3.1.1). University Park: The Methodology Center, Penn State. Available online at [https://aimlab.psu.edu/tvem/tvem-sas-macro/])(https://aimlab.psu.edu/tvem/tvem-sas-macro/) and archived at  [https://github.com/dziakj1/MethodologyCenterTVEMmacros](https://github.com/dziakj1/MethodologyCenterTVEMmacros) and [https://scholarsphere.psu.edu/collections/v41687m23q](https://scholarsphere.psu.edu/collections/v41687m23q).
 
 * Ruppert, D., Wand, M. P., & Carroll, R. J. (2003). Semiparametric regression. 
 Cambridge: Cambridge University Press.

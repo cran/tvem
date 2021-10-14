@@ -205,7 +205,11 @@ of the Royal Statistical Socety, B, 55:757-796. <doi:10.1057/9780230280830_39>
 Li, R., Dziak, J. J., Tan, X., Huang, L., Wagner, A. T., & Yang, J. (2017).
 TVEM (time-varying effect model) SAS macro users' guide (Version 3.1.1).
 University Park: The Methodology Center, Penn State. Retrieved from
-<http://methodology.psu.edu>.
+<http://methodology.psu.edu>. Available online at
+<https://aimlab.psu.edu/tvem/tvem-sas-macro/> and archived at  
+<https://github.com/dziakj1/MethodologyCenterTVEMmacros>
+and
+<https://scholarsphere.psu.edu/collections/v41687m23q>.
 
 Liang, K. Y., Zeger, S. L. Longitudinal data analysis using generalized linear
 models. Biometrika. 1986; 73:13-22. <doi:10.1093/biomet/73.1.13>
