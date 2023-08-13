@@ -170,3 +170,30 @@ plot(tvem2_weighted)
 print(summary((tvem2_unweighted$grid_fitted_coefficients$`(Intercept)`$estimate)))
 print(summary((tvem2_weighted$grid_fitted_coefficients$`(Intercept)`$estimate)))
 
+## -----------------------------------------------------------------------------
+
+cross_sectional_example <- simulate_cross_sectional_tvem_example(
+  n_subjects = 500,  
+  min_time = 20,
+  max_time = 70,
+  simulate_binary = TRUE)
+  
+print(head(cross_sectional_example))
+
+
+model1_cross_sectional <- tvem(data=cross_sectional_example,
+                               num_knots=2,
+                               spline_order=1,
+               formula=y~1,
+               id=subject_id,
+               time=time)
+print(model1_cross_sectional)
+plot(model1_cross_sectional)
+
+model2_cross_sectional <- tvem(data=cross_sectional_example,
+                               formula=y~x1+x2,
+                               id=subject_id,
+                               time=time)
+print(model2_cross_sectional)
+
+

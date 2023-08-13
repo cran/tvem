@@ -17,11 +17,21 @@ simulate_tvem_example(
   x1_short_term_rho = 0.7,
   x2_short_term_rho = 0.7,
   sigma_y = 1.5,
-  mu_x1_function = function(t) {     6 - 2 * sqrt(pmax(0, (t/7) - 0.2)) },
-  mu_x2_function = function(t) {     3 + sqrt(pmax(0, (t/7) - 0.5)) },
-  beta0_y_function = function(t) {     1 - 0.3 * sqrt(t/7) },
-  beta1_y_function = function(t) {     0.5 * (t/7)^2 },
-  beta2_y_function = function(t) {     rep(0.2, length(t)) },
+  mu_x1_function = function(t) {
+     6 - 2 * sqrt(pmax(0, (t/7) - 0.2))
+ },
+  mu_x2_function = function(t) {
+     3 + sqrt(pmax(0, (t/7) - 0.5))
+ },
+  beta0_y_function = function(t) {
+     1 - 0.3 * sqrt(t/7)
+ },
+  beta1_y_function = function(t) {
+     0.5 * (t/7)^2
+ },
+  beta2_y_function = function(t) {
+     rep(0.2, length(t))
+ },
   y_short_term_rho = 0.8
 )
 }

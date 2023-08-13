@@ -2,9 +2,7 @@
 % Please edit documentation in R/select_tvem.R
 \name{select_tvem}
 \alias{select_tvem}
-\title{select_tvem:  Select number of interior knots for an unpenalized TVEM. 
-If there are more than one time-varying coefficient, then the current version of this   
-function constrains each to have the same number and location of knots, in order to   #' avoid a higher-dimensional grid search.}
+\title{select_tvem:  Select number of interior knots for an unpenalized TVEM.}
 \usage{
 select_tvem(
   max_knots = 5,
@@ -37,9 +35,7 @@ A TVEM object for the fitted model, with an additional component containing
 a table of information criteria.
 }
 \description{
-select_tvem:  Select number of interior knots for an unpenalized TVEM. 
-If there are more than one time-varying coefficient, then the current version of this   
-function constrains each to have the same number and location of knots, in order to   #' avoid a higher-dimensional grid search.
+select_tvem:  Select number of interior knots for an unpenalized TVEM.
 }
 \examples{
 set.seed(123)
